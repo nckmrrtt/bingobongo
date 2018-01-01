@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SimplePlatformController : MonoBehaviour {
+public class CharacterMovement : MonoBehaviour {
 
     [HideInInspector] public bool facingRight = true;
     [HideInInspector] public bool jump = false;
@@ -31,14 +31,16 @@ public class SimplePlatformController : MonoBehaviour {
             jump = true;
         }
 
-        var dead = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Water"));
+    }
 
-        if (dead)
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Water"))
         {
-            anim.SetTrigger("Explode");
-            rb2d.velocity = (new Vector2(rb2d.velocity.x * .1f, 0f));//rb2d.velocity.y * .1f));
+            Destroy(gameObject);
         }
     }
+
 
     private void FixedUpdate()
     {

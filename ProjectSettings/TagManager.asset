@@ -13,6 +13,7 @@ TagManager:
   - BombPickup
   - ExplosionFX
   - HealthBar
+  - StartGround
   layers:
   - Default
   - TransparentFX

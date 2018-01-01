@@ -10,6 +10,7 @@ public class SpawnCoin : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        //Spawn();
     }
 
     void Spawn()
@@ -32,7 +33,7 @@ public class SpawnCoin : MonoBehaviour
     {
         if (coinCount == 0)
         {
-            Spawn();
+            //Spawn();
         }
     }
 }
